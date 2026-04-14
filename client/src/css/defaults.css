@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+html, body {
+    background-color: var(--bg);
+    color: var(--txt);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1e221c;
+        --txt: #f0f0f0;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #b8bfb1;
+        --txt: #202020;
+    }
+}
