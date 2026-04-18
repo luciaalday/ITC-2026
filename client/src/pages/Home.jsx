@@ -9,7 +9,7 @@ export default function Home() {
 
             <div style={{ padding: "1rem", background: lastEvent ? "#ffd700" : "#eee", borderRadius: 8 }}>
                 {lastEvent
-                    ? `⚡ Motion detected at ${new Date(lastEvent.timestamp).toLocaleTimeString()}`
+                    ? `⚡ Motion detected at ${new Date(lastEvent.timestamp).toLocaleTimeString('en-US', { timeZone: 'America/Phoenix' })}`
                     : "No recent motion"}
             </div>
 

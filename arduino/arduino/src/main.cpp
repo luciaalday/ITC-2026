@@ -3,7 +3,7 @@
 
 #define CLK 3
 #define DIO 2
-#define IR 12
+#define IR 8
 
 int n;
 bool curIR;
@@ -14,17 +14,17 @@ TM1637Display display(CLK, DIO);
 bool checkIR();
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
   display.setBrightness(7);
-  pinMode(IR, INPUT);
+  pinMode(IR, INPUT_PULLUP);
   n = 0;
+  display.showNumberDec(n);
   curIR = false;
   prevIR = false;
 }
 
 void loop() {
-  checkIR();
-  display.showNumberDec(n);
+  if (checkIR()) display.showNumberDec(n);
 }
 
 bool checkIR() {
@@ -36,6 +36,5 @@ bool checkIR() {
     return true;
   }
   prevIR = curIR;
-  
   return false;
 }

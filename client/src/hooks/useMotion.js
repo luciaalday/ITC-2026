@@ -8,33 +8,43 @@ export function useMotion() {
     const [events, setEvents] = useState([]);
     const [lastEvent, setLastEvent] = useState(null);
     const wsRef = useRef(null);
+    const reconnectTimer = useRef(null);
+    const connectRef = useRef(null);
 
-    // Load history on mount
     useEffect(() => {
         fetch(`${SERVER}/api/events`)
             .then(r => r.json())
             .then(setEvents);
     }, []);
 
-    // WebSocket for live updates
     useEffect(() => {
-        const ws = new WebSocket(WS_SERVER);
-        wsRef.current = ws;
+        connectRef.current = () => {
+            const ws = new WebSocket(WS_SERVER);
+            wsRef.current = ws;
 
-        ws.onmessage = (msg) => {
-            const data = JSON.parse(msg.data);
-            if (data.type === "motion") {
-                setLastEvent(data.event);
-                setEvents(prev => [data.event, ...prev.slice(0, 49)]);
-            }
+            ws.onmessage = (msg) => {
+                const data = JSON.parse(msg.data);
+                if (data.type === "motion") {
+                    setLastEvent(data.event);
+                    setEvents(prev => [data.event, ...prev.slice(0, 49)]);
+                }
+            };
+
+            ws.onclose = () => {
+                reconnectTimer.current = setTimeout(() => connectRef.current(), 3000);
+            };
+
+            ws.onerror = () => {
+                ws.close();
+            };
         };
 
-        ws.onclose = () => {
-            // Simple reconnect after 3s if connection drops
-            setTimeout(() => wsRef.current?.reconnect?.(), 3000);
-        };
+        connectRef.current();
 
-        return () => ws.close();
+        return () => {
+            clearTimeout(reconnectTimer.current);
+            wsRef.current?.close();
+        };
     }, []);
 
     return { events, lastEvent };
