@@ -1,1 +1,70 @@
 @import './defaults.css';
+
+html, body {
+	margin: 0;
+	background: radial-gradient(var(--bg1), var(--bg2));
+	color: var(--txt);
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+main {
+	text-align: center;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+article {
+	flex: 1;
+	padding: 10px;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+	gap: 10px;
+}
+
+@media (width <= 780px) {
+	article {
+		flex-direction: column;
+	}
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+.flex {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.graph {
+	background-color: var(--bg2);
+	padding: 10px;
+}
+.data-container {
+	display: flex;
+}
+.x-label {
+	writing-mode:sideways-lr;
+}
+.data {
+	display: block;
+	width: 100%;
+	height: 50vh;
+	border-bottom: var(--nav) 1px solid;
+	border-left: var(--nav) 1px solid;
+}
+select {
+	margin: 10px;
+	background-color: var(--bg1);
+	color: var(--txt);
+	border-radius: 5px;
+	border: 0;
+	padding: 2px 5px;
+}

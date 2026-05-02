@@ -1,0 +1,24 @@
+@import url("./defaults.css");
+
+nav {
+  background-color: var(--nav);
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  padding: 0;
+}
+
+nav h1 {
+  margin: 5px;
+}
+
+a {
+  color: var(--link);
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--footer);
+  width: 100vw;
+}
