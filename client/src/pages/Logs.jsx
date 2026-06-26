@@ -1,14 +1,14 @@
 import { useMotion } from "../hooks/useMotion";
 
-export default function Home() {
+export default function Logs() {
     const { events, lastEvent } = useMotion();
 
     return (
         <article>
             <section>
-                <div style={{ padding: "1rem", background: lastEvent ? "#ffd700" : "#eee", borderRadius: 8 }}>
+                <div style={{ padding: "1rem", background: lastEvent ? "#50855a" : "#495849", borderRadius: 8 }}>
                     {lastEvent
-                        ? `⚡ Motion detected at ${new Date(lastEvent.timestamp).toLocaleTimeString('en-US', { timeZone: 'America/Phoenix' })}`
+                        ? `Motion detected at ${new Date(lastEvent.timestamp).toLocaleTimeString('en-US', { timeZone: 'America/Phoenix' })}`
                         : "No recent motion"}
                 </div>
                     
@@ -20,7 +20,7 @@ export default function Home() {
                         </li>
                     ))}
                 </ul>
-                </section>
+            </section>
         </article>
     );
 }

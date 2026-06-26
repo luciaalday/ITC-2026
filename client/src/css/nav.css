@@ -1,15 +1,52 @@
 @import url("./defaults.css");
 
 nav {
-  background-color: var(--nav);
-  position: sticky;
+  position: absolute;
   top: 0;
+  display: flex;
+  justify-content: space-between;
   width: 100vw;
   padding: 0;
 }
 
-nav h1 {
-  margin: 5px;
+.nav-button {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  box-shadow: 0 0 10px 1px var(--txt2);
+}
+
+.left {
+  background-color: var(--nav);
+  padding: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-bottom-right-radius: 100%;
+}
+.menu {
+  background-color: var(--footer);
+  align-items: flex-end;
+  border-bottom-left-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: fit-content;
+  width: fit-content;
+  overflow: hidden;
+
+}
+
+.menu-link {
+  color: var(--txt);
+  text-align: right;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 15px 10px 25px;
+  transition: 0.2s;
+}
+.menu-link:hover {
+  background-color: var(--bg1);
+  text-decoration: dotted underline;
 }
 
 a {
@@ -21,4 +58,5 @@ footer {
   padding: 10px;
   background-color: var(--footer);
   width: 100vw;
+  box-sizing: border-box;
 }

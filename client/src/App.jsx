@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Logs from "./pages/Logs";
 import Error from "./pages/Error";
 import Analysis from "./pages/Analysis";
 
 import Nav from "./static/Nav";
 import Footer from "./static/Footer";
+import Overview from "./pages/Overview";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <main>
           <Nav />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Overview />} />
+            <Route path='/logs' element={<Logs />} />
             <Route path='/analysis' element={<Analysis />} />
             <Route path='*' element={<Error code={404} />} />
           </Routes>

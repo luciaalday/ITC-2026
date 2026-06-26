@@ -5,8 +5,9 @@ export default function Footer() {
     <footer>
       <h6>ITC 2026 &copy; University of Arizona TPEG</h6>
       <div className="flex">
-        <Link to="/">Try it out</Link>
-        <Link to="/analysis">View data</Link>
+        <Link to="/">Overview</Link>
+        <Link to="/logs">View logs</Link>
+        <Link to="/analysis">View analysis</Link>
       </div>
     </footer>
   )

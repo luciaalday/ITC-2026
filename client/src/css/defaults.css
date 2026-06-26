@@ -6,7 +6,9 @@
         --bg1: #354f4d;
         --bg2: #101010;
         --txt: #f0f0f0;
-        --nav: #1a3035;
+        --txt2: #808080;
+        --nav: #0c234b; /* #1a3035 */
+        --mid-blue: #1e5288;
         --footer: #0d1011;
         --link: #86a2a3;
     }
@@ -14,11 +16,13 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --nav: #2c5e54;
+        --nav: #0c234b; /* #2c5e54 */
+        --mid-blue: #1e5288;
         --bg: #b8bfb1;
         --bg1: #819b90;
         --bg2: #f0f0f0;
         --txt: #202020;
+        --txt2: #808080;
         --footer: #506863;
         --link: #313b39;
     }
