@@ -1,0 +1,49 @@
+@import './defaults.css';
+
+.chart-header {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (width<780px) {
+  .chart-header {
+    font-size: medium;
+  }
+  .chart-header select {
+    font-size: large !important;
+  }
+  h1 {
+    font-size: large;
+  }
+}
+
+.chart-header select {
+  margin: 0;
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.chart-header option {
+  font-size: medium;
+}
+
+.graph {
+	background-color: var(--bg2);
+	padding: 10px;
+}
+.data-container {
+	display: flex;
+}
+.x-label {
+	writing-mode:sideways-lr;
+}
+.data {
+	display: block;
+	width: 100%;
+	height: 50vh;
+	border-bottom: var(--nav) 1px solid;
+	border-left: var(--nav) 1px solid;
+}

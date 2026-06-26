@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client'
 import './css/defaults.css';
 import './css/nav.css';
 import './css/index.css';
+import './css/charts.css';
 
 import App from './App.jsx'
 

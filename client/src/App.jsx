@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Logs from "./pages/Logs";
 import Error from "./pages/Error";
 import Analysis from "./pages/Analysis";
