@@ -1,3 +1,4 @@
+// src/pages/Error.jsx
 import { Link } from 'react-router-dom'
 
 export default function Error({ code, url=null, link='/', redirect='Back to homepage' }) {

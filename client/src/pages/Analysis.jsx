@@ -1,18 +1,29 @@
 import { useState } from "react";
-
 import Chart from "../components/Chart";
+import { useSensorData } from "../hooks/useSensorData";
+
+const PERIOD_SLUGS = {
+    'Minute': 'minute',
+    'Day': 'day',
+    'All time': 'all-time',
+};
 
 export default function Analysis() {
     const [pe, setPE] = useState('Power');
     const [petime, setPEtime] = useState('Minute');
-    const [pevalues, setPEvalues] = useState([]);
-    const [petimevalues, setPEtimevalues] = useState([]);
-    
+
     const [rrpm, setRRPM] = useState('Rotations');
     const [rrpmtime, setRRPMtime] = useState('Minute');
-    const [rrpmvalues, setRRPMvalues] = useState([]);
-    const [rrpmtimevalues, setRRPMtimevalues] = useState([]);
-    
+
+    const rrpmMetric = rrpm === 'Rotations' ? 'rotations' : 'rpm';
+    const peMetric = pe === 'Power' ? 'power' : 'energy';
+
+    const { values: rrpmValues, timevalues: rrpmTimevalues } =
+        useSensorData(rrpmMetric, PERIOD_SLUGS[rrpmtime]);
+
+    const { values: peValues, timevalues: peTimevalues } =
+        useSensorData(peMetric, PERIOD_SLUGS[petime]);
+
     return (
         <article>
             <section>
@@ -28,8 +39,7 @@ export default function Analysis() {
                         <option>All time</option>
                     </select>
                 </div>
-                <Chart xname={rrpm} />
-
+                <Chart xname={rrpm} xvalues={rrpmTimevalues} yvalues={rrpmValues} />
             </section>
             <section>
                 <div className='chart-header'>
@@ -44,7 +54,7 @@ export default function Analysis() {
                         <option>All time</option>
                     </select>
                 </div>
-                <Chart xname={pe} />
+                <Chart xname={pe} xvalues={peTimevalues} yvalues={peValues} />
             </section>
         </article>
     )

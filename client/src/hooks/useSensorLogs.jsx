@@ -3,22 +3,16 @@ import { useEffect, useState, useRef } from "react";
 const SERVER = "http://localhost:3001";
 const WS_SERVER = "ws://localhost:3001";
 
-// Motion is now derived from the rotation sensor: every rotation pulse
-// is treated as a motion detection.
-export function useMotion() {
-    const [events, setEvents] = useState([]);
-    const [lastEvent, setLastEvent] = useState(null);
+export function useSensorLogs() {
+    const [powerReadings, setPowerReadings] = useState([]);
     const wsRef = useRef(null);
     const reconnectTimer = useRef(null);
     const connectRef = useRef(null);
 
     useEffect(() => {
-        fetch(`${SERVER}/api/rotations`)
+        fetch(`${SERVER}/api/power`)
             .then(r => r.json())
-            .then(data => {
-                setEvents(data);
-                if (data.length > 0) setLastEvent(data[0]);
-            });
+            .then(setPowerReadings);
     }, []);
 
     useEffect(() => {
@@ -27,9 +21,8 @@ export function useMotion() {
             wsRef.current = ws;
             ws.onmessage = (msg) => {
                 const data = JSON.parse(msg.data);
-                if (data.type === "rotation") {
-                    setLastEvent(data.event);
-                    setEvents(prev => [data.event, ...prev.slice(0, 49)]);
+                if (data.type === "power") {
+                    setPowerReadings(prev => [data.event, ...prev.slice(0, 49)]);
                 }
             };
             ws.onclose = () => {
@@ -46,5 +39,5 @@ export function useMotion() {
         };
     }, []);
 
-    return { events, lastEvent };
+    return { powerReadings };
 }
