@@ -39,6 +39,7 @@
 }
 .x-label {
 	writing-mode:sideways-lr;
+  text-align: center;
 }
 .data {
 	display: block;
