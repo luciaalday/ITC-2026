@@ -1,3 +1,5 @@
+import reportPdf from "./Tpeg ITC_2026.pdf";
+
 export default function Overview() {
   return (
     <article>
@@ -26,6 +28,17 @@ export default function Overview() {
           and support energy optimization strategies.
         </p>
         <hr></hr>
+        <iframe
+          src={reportPdf}
+          title="Project report PDF"
+          width="100%"
+          height="800"
+          style={{ border: "none" }}
+        >
+          <p>
+            Your browser can't display PDFs. <a href={reportPdf}>Download the report</a>.
+          </p>
+        </iframe>
       </section>
     </article>
   )
