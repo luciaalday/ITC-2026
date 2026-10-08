@@ -22,6 +22,7 @@ article {
 	justify-content: stretch;
 	gap: 10px;
 	max-width: 1240px;
+	margin: auto;
 }
 
 @media (width <= 780px) {
