@@ -28,6 +28,7 @@ export default function Overview() {
           and support energy optimization strategies.
         </p>
         <hr></hr>
+        <h3>Full Paper</h3>
         <iframe
           src={reportPdf}
           title="Project report PDF"
@@ -39,6 +40,9 @@ export default function Overview() {
             Your browser can't display PDFs. <a href={reportPdf}>Download the report</a>.
           </p>
         </iframe>
+        <hr></hr>
+        <h3>Powerpoint Presentation</h3>
+        <p>In progress</p>
       </section>
     </article>
   )
