@@ -6,7 +6,7 @@ export default function Overview() {
         <h2>University of Arizona Theme Park Entertainment Group</h2>
         <h4>
           <b>Undergraduate Students: </b>
-          Nathaniel Bidwell, Joseph Hill, Lucia Alday, Makenna Dundon, Gwendolyn Alviar, Bobby Limperis, Icarus Newton, Elizabeth Springer, Aidan Monroe 
+          Nathaniel Bidwell, Lucia Alday, Gwendolyn Alviar, Bobby Limperis, Icarus Newton, Joseph Hill, Makena Dundon, Elizabeth Springer, Aidan Monroe 
         </h4>
         <h4>
           <b>Faculty Advisor: </b>
