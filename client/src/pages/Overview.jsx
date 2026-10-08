@@ -1,4 +1,4 @@
-import reportPdf from "./Tpeg ITC_2026.pdf";
+import reportPdf from "./TPEG ITC_2026.pdf";
 
 export default function Overview() {
   return (
